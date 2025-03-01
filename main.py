@@ -1,12 +1,13 @@
 from fastapi import FastAPI
 
-app= FastAPI()
+app = FastAPI()
 
 @app.get("/")
-def read():
-  return{"hello":"world"}
+def root():
+  return {"message": "Welcome to my API!!!"}
 
-
-if __name__ == "__main__":
-  import uvicorn
-  uvicorn.run(app,host="0.0.0.0", port = 8000)
+@app.get("/posts")
+def get_posts():
+  return {
+    "data": "This is your post"
+  }
